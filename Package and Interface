@@ -1,0 +1,40 @@
+// File: com/bank/finance/InterestRate.java
+package com.bank.finance;
+
+public interface InterestRate {
+    double calculateMonthlyReturn(double principal);
+}
+
+// File: Main.java (in default package or separate)
+import com.bank.finance.InterestRate;
+
+class Savings implements InterestRate {
+    public double calculateMonthlyReturn(double principal) {
+        return principal * 0.05 / 12; // 5% annual rate
+    }
+}
+
+class Current implements InterestRate {
+    public double calculateMonthlyReturn(double principal) {
+        return 0; // No interest
+    }
+}
+
+class Loan implements InterestRate {
+    public double calculateMonthlyReturn(double principal) {
+        return -principal * 0.08 / 12; // 8% annual interest to pay
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        InterestRate savings = new Savings();
+        InterestRate current = new Current();
+        InterestRate loan = new Loan();
+        
+        double principal = 10000;
+        System.out.println("Savings Monthly Return: " + savings.calculateMonthlyReturn(principal));
+        System.out.println("Current Monthly Return: " + current.calculateMonthlyReturn(principal));
+        System.out.println("Loan Monthly Return: " + loan.calculateMonthlyReturn(principal));
+    }
+}
