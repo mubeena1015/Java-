@@ -1,0 +1,9 @@
+public class Blueprint {
+    public static void main(String[] args) {
+        System.out.println("Architecture Blueprint Visualizer");
+        System.out.println("Room   : Rectangle");
+        System.out.println("Vent   : Circle");
+        System.out.println("Walls  : Lines");
+        System.out.println("Layout drawn using drawRect(), drawOval(), drawLine()");
+    }
+}
