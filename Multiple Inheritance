@@ -1,0 +1,42 @@
+// Interfaces for behaviors
+interface Refuelable {
+    void refuel();
+}
+
+interface Rechargeable {
+    void recharge();
+}
+
+// Classes implementing interfaces
+class GasolineEngine implements Refuelable {
+    public void refuel() {
+        System.out.println("Refueling gasoline engine.");
+    }
+}
+
+class ElectricMotor implements Rechargeable {
+    public void recharge() {
+        System.out.println("Recharging electric motor.");
+    }
+}
+
+// HybridCar uses composition (has-a) to get both behaviors
+public class HybridCar implements Refuelable, Rechargeable {
+    private GasolineEngine engine = new GasolineEngine();
+    private ElectricMotor motor = new ElectricMotor();
+
+    public void refuel() {
+        engine.refuel();
+    }
+
+    public void recharge() {
+        motor.recharge();
+    }
+
+    // Test it
+    public static void main(String[] args) {
+        HybridCar car = new HybridCar();
+        car.refuel();
+        car.recharge();
+    }
+}
