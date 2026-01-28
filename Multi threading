@@ -1,0 +1,27 @@
+public class DownloadManager extends Thread {
+    String fileName;
+
+    DownloadManager(String fileName) {
+        this.fileName = fileName;
+    }
+
+    public void run() {
+        for (int i = 1; i <= 5; i++) {
+            System.out.println(fileName + " downloading... " + (i * 20) + "%");
+            try {
+                Thread.sleep(500);
+            } catch (Exception e) {}
+        }
+        System.out.println(fileName + " download completed");
+    }
+
+    public static void main(String[] args) {
+        DownloadManager f1 = new DownloadManager("File A");
+        DownloadManager f2 = new DownloadManager("File B");
+        DownloadManager f3 = new DownloadManager("File C");
+
+        f1.start();
+        f2.start();
+        f3.start();
+    }
+}
