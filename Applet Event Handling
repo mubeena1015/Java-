@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class SmartHome {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        int choice;
+
+        System.out.println("Smart Home Dashboard");
+        System.out.println("1. ON");
+        System.out.println("2. OFF");
+        System.out.print("Press a button: ");
+
+        choice = sc.nextInt();
+
+        if (choice == 1) {
+            System.out.println("Light is ON");
+            System.out.println("Background Color: Yellow");
+        } else if (choice == 2) {
+            System.out.println("Light is OFF");
+            System.out.println("Background Color: Black");
+        } else {
+            System.out.println("Invalid Button");
+        }
+
+        sc.close();
+    }
+}
