@@ -1,0 +1,49 @@
+import java.util.Scanner;
+
+class Student {
+    String name;
+    int[] marks = new int[5];
+
+    void input() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter student name: ");
+        name = scanner.nextLine();
+
+        for (int i = 0; i < marks.length; i++) {
+            System.out.print("Enter marks obtained in subject " + (i + 1) + ": ");
+            marks[i] = scanner.nextInt();
+        }
+    }
+
+    int calculateTotalMarks() {
+        int total = 0;
+        for (int mark : marks) {
+            total += mark;
+        }
+        return total;
+    }
+
+    double calculateAverageMarks() {
+        int total = calculateTotalMarks();
+        return (double) total / marks.length;
+    }
+
+    void display() {
+        System.out.println("Student Name: " + name);
+        System.out.println("Marks obtained in each subject: ");
+        for (int i = 0; i < marks.length; i++) {
+            System.out.println("Subject " + (i + 1) + ": " + marks[i]);
+        }
+        System.out.println("Total Marks: " + calculateTotalMarks());
+        System.out.println("Average Marks: " + calculateAverageMarks());
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Student student = new Student();
+        student.input();
+        System.out.println();
+        student.display();
+    }
+}
