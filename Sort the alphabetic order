@@ -1,0 +1,39 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter the number of elements:");
+        int n = sc.nextInt();
+        
+        // Consume the leftover newline character from nextInt()
+        sc.nextLine(); 
+
+        String fruits[] = new String[n];
+
+        System.out.println("Enter the Strings:");
+        for (int i = 0; i < n; i++) {
+            fruits[i] = sc.nextLine();
+        }
+
+        // Selection Sort Logic
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                // compareTo returns > 0 if fruits[i] comes after fruits[j]
+                if (fruits[i].compareTo(fruits[j]) > 0) {
+                    // Swap the elements
+                    String temp = fruits[i];
+                    fruits[i] = fruits[j];
+                    fruits[j] = temp;
+                }
+            }
+        }
+
+        // Display the sorted array
+        System.out.println("Sorted list: " + Arrays.toString(fruits));
+        
+        sc.close();
+    }
+}
