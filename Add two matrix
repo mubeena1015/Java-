@@ -1,0 +1,82 @@
+import java.util.Scanner;
+
+public class AddMatrix {
+    public static void main(String[] args) {
+        int p, q, m, n;
+        Scanner s = new Scanner(System.in);
+
+        // Input dimensions for the first matrix
+        System.out.print("Enter number of rows in first matrix: ");
+        p = s.nextInt();
+        System.out.print("Enter number of columns in first matrix: ");
+        q = s.nextInt();
+
+        // Input dimensions for the second matrix
+        System.out.print("Enter number of rows in second matrix: ");
+        m = s.nextInt();
+        System.out.print("Enter number of columns in second matrix: ");
+        n = s.nextInt();
+
+        // Check if matrix addition is possible
+        if (p == m && q == n) {
+            int a[][] = new int[p][q];
+            int b[][] = new int[m][n];
+            int c[][] = new int[m][n];
+
+            // Input elements for the first matrix
+            System.out.println("Enter all the elements of first matrix: ");
+            for (int i = 0; i < p; i++) {
+                for (int j = 0; j < q; j++) {
+                    a[i][j] = s.nextInt();
+                }
+            }
+
+            // Input elements for the second matrix
+            System.out.println("Enter all the elements of second matrix: ");
+            for (int i = 0; i < m; i++) {
+                for (int j = 0; j < n; j++) {
+                    b[i][j] = s.nextInt();
+                }
+            }
+
+            // Print the first matrix
+            System.out.println("First Matrix:");
+            for (int i = 0; i < p; i++) {
+                for (int j = 0; j < q; j++) {
+                    System.out.print(a[i][j] + " ");
+                }
+                System.out.println();
+            }
+
+            // Print the second matrix
+            System.out.println("Second Matrix:");
+            for (int i = 0; i < m; i++) {
+                for (int j = 0; j < n; j++) {
+                    System.out.print(b[i][j] + " ");
+                }
+                System.out.println();
+            }
+
+            // Perform Addition
+            for (int i = 0; i < p; i++) {
+                for (int j = 0; j < q; j++) {
+                    c[i][j] = a[i][j] + b[i][j];
+                }
+            }
+
+            // Print the result matrix
+            System.out.println("Matrix after addition:");
+            for (int i = 0; i < p; i++) {
+                for (int j = 0; j < q; j++) {
+                    System.out.print(c[i][j] + " ");
+                }
+                System.out.println();
+            }
+
+        } else {
+            System.out.println("Addition would not be possible because matrix dimensions don't match");
+        }
+        
+        s.close();
+    }
+}
